@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { Task } from './tasks.model';
+import { CreateTaskDto } from './dto/create-task.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -15,10 +16,8 @@ export class TasksController {
   @Post()
   async createTask(
     // @Body decorator gets entire request body
-    // You can extract specific keys from the body by passing them in as args
-    @Body('title') title: string,
-    @Body('description') description: string,
+    @Body() createTaskDto: CreateTaskDto,
   ): Promise<Task> {
-    return await this.tasksService.createTask(title, description);
+    return await this.tasksService.createTask(createTaskDto);
   }
 }
