@@ -40,14 +40,14 @@ export class TasksController {
     return this.tasksService.getTaskById(id);
   }
 
-  // @Post()
-  // @UsePipes(ValidationPipe)
-  // async createTask(
-  //   // @Body decorator gets entire request body
-  //   @Body() createTaskDto: CreateTaskDto,
-  // ): Promise<Task> {
-  //   return await this.tasksService.createTask(createTaskDto);
-  // }
+  @Post()
+  @UsePipes(ValidationPipe)
+  async createTask(
+    // @Body decorator gets entire request body
+    @Body() createTaskDto: CreateTaskDto,
+  ): Promise<Task> {
+    return await this.tasksService.createTask(createTaskDto);
+  }
 
   // @Delete('/:id')
   // async deleteTaskById(@Param('id') id: string): Promise<Task> {
