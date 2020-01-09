@@ -2,6 +2,7 @@ import { Repository, EntityRepository } from 'typeorm';
 import { Task } from './task.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { TaskStatus } from './task-status.enum';
+import { NotFoundException } from '@nestjs/common';
 
 // Tells TypeORM, this repository is for Tasks
 @EntityRepository(Task)
