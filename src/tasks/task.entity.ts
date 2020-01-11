@@ -29,4 +29,8 @@ export class Task extends BaseEntity {
     { eager: false },
   )
   user: User;
+
+  // Created by TypeORM
+  @Column()
+  userId: number;
 }
